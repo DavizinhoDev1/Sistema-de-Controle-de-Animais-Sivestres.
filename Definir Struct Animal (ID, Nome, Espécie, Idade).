@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+// Definicao da estrutura
+typedef struct {
+    int id;            // Numero de identificacao unico
+    char nome[50];     // Vetor de caracteres para o nome (ate 49 letras + \0)
+    char especie[30];  // Vetor de caracteres para a especie
+    int idade;         // Valor inteiro para a idade
+} Animal;
+
+int main() {
+    // Exemplo de como declarar e usar a struct no código:
+    Animal meuAnimal;
+
+    meuAnimal.id = 1;
+    meuAnimal.idade = 5;
+    // Para strings em C, usamos funcoes como strcpy ou fgets
+    
+    printf("Estrutura Animal definida com sucesso!\n");
+    
+    return 0;
+}
