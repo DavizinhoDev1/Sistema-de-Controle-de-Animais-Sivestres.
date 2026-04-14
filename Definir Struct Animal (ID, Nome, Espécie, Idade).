@@ -61,3 +61,71 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+codigo certo fucionando:
+
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    int id;
+    char nome[50];
+    char especie[30];
+    int idade;
+} Animal;
+
+int main() {
+    Animal a;
+
+    printf("--- Cadastro de Animal ---\n");
+
+    // 1. Lendo o ID (Inteiro)
+    printf("Digite o ID do animal: ");
+    scanf("%d", &a.id);
+    getchar(); // Limpa o "Enter" que sobra no teclado
+
+    // 2. Lendo o Nome (Texto com espaços)
+    printf("Digite o nome do animal: ");
+    fgets(a.nome, 50, stdin);
+    a.nome[strcspn(a.nome, "\n")] = 0; // Remove a quebra de linha do final
+
+    // 3. Lendo a Espécie (Texto com espaços)
+    printf("Digite a especie: ");
+    fgets(a.especie, 30, stdin);
+    a.especie[strcspn(a.especie, "\n")] = 0; // Remove a quebra de linha do final
+
+    // 4. Lendo a Idade (Inteiro)
+    printf("Digite a idade: ");
+    scanf("%d", &a.idade);
+
+    // Exibindo o que o usuario digitou
+    printf("\n--- Animal Cadastrado ---\n");
+    printf("ID: %d | Nome: %s | Especie: %s | Idade: %d\n", a.id, a.nome, a.especie, a.idade);
+
+    return 0;
+}
+
+
+
