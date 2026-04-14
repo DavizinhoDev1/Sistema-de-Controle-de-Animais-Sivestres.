@@ -1,0 +1,35 @@
+
+
+
+preciso fazer um projeto em C, e organizar tudo no trello sobre um sistema de controle de animais, não sei como faço, pode fazer para eu copiar e colar e voce me explicar cada parte?
+
+Criar um sistema de controle de animais em C é um excelente exercício de lógica, pois envolve manipulação de estruturas (structs), ponteiros e arquivos.
+
+Para o Trello, a organização segue a metodologia Kanban, que ajuda a visualizar o fluxo de trabalho. Abaixo, preparei a estrutura para o seu quadro e o esqueleto inicial do código.
+📋 Estrutura do Trello (Colunas e Cartões)
+
+Crie quatro colunas no seu Trello e adicione estes cartões:
+
+    Backlog (A Fazer)
+
+        Definir Struct Animal (ID, Nome, Espécie, Idade).
+
+        Implementar função de Cadastro.
+
+        Implementar função de Listagem.
+
+        Implementar sistema de salvar/ler em arquivo .txt ou .dat.
+
+    Em Desenvolvimento (Doing)
+
+        Mova os cartões para cá enquanto estiver programando.
+
+    Testes (QA)
+
+        Validar se o ID não se repete.
+
+        Testar se o programa fecha corretamente sem perder dados.
+
+    Concluído (Done)
+
+        Mova aqui quando a funcionalidade estiver 100% pronta.
