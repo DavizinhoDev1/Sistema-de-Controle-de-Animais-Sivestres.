@@ -1,1 +1,84 @@
 Cadastro de Animais:
+
+Codigo Base:
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Definição da estrutura do animal
+typedef struct {
+    int id;
+    char nome[50];
+    char especie[30];
+    int idade;
+} Animal;
+
+void cadastrarAnimal();
+void listarAnimais();
+
+int main() {
+    int opcao;
+
+    do {
+        printf("\n--- SISTEMA DE CONTROLE DE ANIMAIS ---\n");
+        printf("1. Cadastrar Animal\n");
+        printf("2. Listar Animais\n");
+        printf("0. Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        getchar(); // Limpar o buffer do teclado
+
+        switch(opcao) {
+            case 1: cadastrarAnimal(); break;
+            case 2: listarAnimais(); break;
+            case 0: printf("Saindo...\n"); break;
+            default: printf("Opcao invalida!\n");
+        }
+    } while(opcao != 0);
+
+    return 0;
+}
+
+void cadastrarAnimal() {
+    FILE *arquivo = fopen("animais.dat", "ab"); // 'ab' abre para anexar em binário
+    if (arquivo == NULL) {
+        printf("Erro ao abrir arquivo!\n");
+        return;
+    }
+
+    Animal a;
+    printf("ID: ");
+    scanf("%d", &a.id);
+    getchar();
+    printf("Nome: ");
+    fgets(a.nome, 50, stdin);
+    a.nome[strcspn(a.nome, "\n")] = 0; // Remove o \n do final
+    printf("Especie: ");
+    fgets(a.especie, 30, stdin);
+    a.especie[strcspn(a.especie, "\n")] = 0;
+    printf("Idade: ");
+    scanf("%d", &a.idade);
+
+    fwrite(&a, sizeof(Animal), 1, arquivo);
+    fclose(arquivo);
+    printf("Animal cadastrado com sucesso!\n");
+}
+
+void listarAnimais() {
+    FILE *arquivo = fopen("animais.dat", "rb"); // 'rb' abre para leitura em binário
+    if (arquivo == NULL) {
+        printf("Nenhum animal cadastrado ainda.\n");
+        return;
+    }
+
+    Animal a;
+    printf("\n--- LISTA DE ANIMAIS ---\n");
+    while(fread(&a, sizeof(Animal), 1, arquivo)) {
+        printf("ID: %d | Nome: %s | Especie: %s | Idade: %d anos\n", 
+                a.id, a.nome, a.especie, a.idade);
+    }
+    fclose(arquivo);
+}
