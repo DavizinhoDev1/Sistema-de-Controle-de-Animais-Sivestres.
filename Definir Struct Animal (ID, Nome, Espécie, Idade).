@@ -1,3 +1,6 @@
+
+base do Codigo
+
 #include <stdio.h>
 
 // Definicao da estrutura
@@ -18,5 +21,43 @@ int main() {
     
     printf("Estrutura Animal definida com sucesso!\n");
     
+    return 0;
+}
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+// Definicao da estrutura Animal
+typedef struct {
+    int id;             // Identificador numerico
+    char nome[50];      // Nome do animal (string)
+    char especie[30];   // Especie (ex: Cachorro, Gato)
+    int idade;          // Idade em anos
+} Animal;
+
+int main() {
+    // Criando uma variavel do tipo Animal
+    Animal pet;
+
+    // Atribuindo valores para teste
+    pet.id = 101;
+    pet.idade = 3;
+    
+    // Para strings, usamos strcpy (copia de string) ou entrada de dados
+    strcpy(pet.nome, "Rex");
+    strcpy(pet.especie, "Cachorro");
+
+    // Exibindo os dados
+    printf("--- Dados do Animal ---\n");
+    printf("ID: %d\n", pet.id);
+    printf("Nome: %s\n", pet.nome);
+    printf("Especie: %s\n", pet.especie);
+    printf("Idade: %d anos\n", pet.idade);
+
     return 0;
 }
