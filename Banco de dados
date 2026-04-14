@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct {
+    int id;
+    char nome[50];
+    char especie[30];
+    int idade;
+} Animal;
+
+// Funcao para salvar no "Banco de Dados" (Arquivo)
+void salvarNoArquivo(Animal a) {
+    // FILE* eh o ponteiro para o arquivo
+    // "ab" significa: Append (Anexar) e Binary (Binario)
+    FILE *arquivo = fopen("database.dat", "ab");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o banco de dados!\n");
+        return;
+    }
+
+    // Escreve a estrutura inteira de uma vez
+    fwrite(&a, sizeof(Animal), 1, arquivo);
+
+    fclose(arquivo); // Sempre feche o arquivo!
+    printf("\nAnimal salvo com sucesso no arquivo!\n");
+}
+
+int main() {
+    Animal novo;
+
+    printf("--- Cadastro para o Banco de Dados ---\n");
+    printf("ID: ");
+    scanf("%d", &novo.id);
+    getchar();
+
+    printf("Nome: ");
+    fgets(novo.nome, 50, stdin);
+    novo.nome[strcspn(novo.nome, "\n")] = 0;
+
+    printf("Especie: ");
+    fgets(novo.especie, 30, stdin);
+    novo.especie[strcspn(novo.especie, "\n")] = 0;
+
+    printf("Idade: ");
+    scanf("%d", &novo.id);
+
+    // Chamando a funcao que salva
+    salvarNoArquivo(novo);
+
+    return 0;
+}
