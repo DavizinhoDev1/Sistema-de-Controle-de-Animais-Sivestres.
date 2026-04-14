@@ -1,0 +1,15 @@
+No Trello, você pode clicar no cartão e adicionar uma "Checklist". 
+Para o cartão de Cadastro, você pode colar isto:
+
+
+[ ] Declarar variável do tipo FILE
+
+[ ] Usar fopen no modo "ab" (anexar binário)
+
+[ ] Ler dados do usuário com fgets e scanf
+
+[ ] Limpar o buffer do teclado com getchar()
+
+[ ] Gravar no arquivo com fwrite
+
+[ ] Fechar o arquivo com fclose
